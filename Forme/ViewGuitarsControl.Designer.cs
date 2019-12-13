@@ -45,8 +45,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.PeachPuff;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(18)))), ((int)(((byte)(40)))));
             this.Controls.Add(this.label1);
+            this.ForeColor = System.Drawing.SystemColors.Control;
             this.Name = "ViewGuitarsControl";
             this.Size = new System.Drawing.Size(632, 329);
             this.ResumeLayout(false);

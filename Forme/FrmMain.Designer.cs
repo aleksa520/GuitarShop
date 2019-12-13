@@ -46,9 +46,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.mainPanel = new System.Windows.Forms.Panel();
+            this.addGuitarControl = new Forme.AddGuitarControl();
             this.viewGuitarsControl = new Forme.ViewGuitarsControl();
             this.billControl = new Forme.BillControl();
-            this.addGuitarControl = new Forme.AddGuitarControl();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.guitarStickerPanel.SuspendLayout();
@@ -281,40 +281,41 @@
             this.mainPanel.Size = new System.Drawing.Size(752, 480);
             this.mainPanel.TabIndex = 9;
             // 
-            // viewGuitarsControl
-            // 
-            this.viewGuitarsControl.BackColor = System.Drawing.Color.PeachPuff;
-            this.viewGuitarsControl.Location = new System.Drawing.Point(234, 161);
-            this.viewGuitarsControl.Name = "viewGuitarsControl";
-            this.viewGuitarsControl.Size = new System.Drawing.Size(632, 329);
-            this.viewGuitarsControl.TabIndex = 11;
-            // 
-            // billControl
-            // 
-            this.billControl.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.billControl.Location = new System.Drawing.Point(234, 161);
-            this.billControl.Name = "billControl";
-            this.billControl.Size = new System.Drawing.Size(632, 329);
-            this.billControl.TabIndex = 12;
-            // 
             // addGuitarControl
             // 
-            this.addGuitarControl.BackColor = System.Drawing.Color.YellowGreen;
+            this.addGuitarControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(18)))), ((int)(((byte)(40)))));
             this.addGuitarControl.Location = new System.Drawing.Point(234, 161);
             this.addGuitarControl.Name = "addGuitarControl";
             this.addGuitarControl.Size = new System.Drawing.Size(632, 329);
             this.addGuitarControl.TabIndex = 13;
+            // 
+            // viewGuitarsControl
+            // 
+            this.viewGuitarsControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(18)))), ((int)(((byte)(40)))));
+            this.viewGuitarsControl.ForeColor = System.Drawing.SystemColors.Control;
+            this.viewGuitarsControl.Location = new System.Drawing.Point(234, 161);
+            this.viewGuitarsControl.Name = "viewGuitarsControl";
+            this.viewGuitarsControl.Size = new System.Drawing.Size(632, 329);
+            this.viewGuitarsControl.TabIndex = 14;
+            // 
+            // billControl
+            // 
+            this.billControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(18)))), ((int)(((byte)(40)))));
+            this.billControl.Location = new System.Drawing.Point(234, 161);
+            this.billControl.Name = "billControl";
+            this.billControl.Size = new System.Drawing.Size(632, 329);
+            this.billControl.TabIndex = 15;
             // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(925, 515);
-            this.Controls.Add(this.addGuitarControl);
-            this.Controls.Add(this.billControl);
-            this.Controls.Add(this.viewGuitarsControl);
             this.Controls.Add(this.guitarStickerPanel);
             this.Controls.Add(this.mainPanel);
+            this.Controls.Add(this.billControl);
+            this.Controls.Add(this.viewGuitarsControl);
+            this.Controls.Add(this.addGuitarControl);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -352,9 +353,9 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Button btnAddGuitar;
         private System.Windows.Forms.Panel mainPanel;
+        private AddGuitarControl addGuitarControl;
         private ViewGuitarsControl viewGuitarsControl;
         private BillControl billControl;
-        private AddGuitarControl addGuitarControl;
     }
 }
 
