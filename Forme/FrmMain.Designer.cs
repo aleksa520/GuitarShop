@@ -30,58 +30,62 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button7 = new System.Windows.Forms.Button();
+            this.btnHome = new System.Windows.Forms.Button();
             this.slidePanel = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnLogOut = new System.Windows.Forms.Button();
+            this.btnGuitars = new System.Windows.Forms.Button();
             this.btnBill = new System.Windows.Forms.Button();
             this.btnAddGuitar = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.guitarStickerPanel = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button4 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnViewGuitars = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
+            this.mainPanel = new System.Windows.Forms.Panel();
+            this.viewGuitarsControl = new Forme.ViewGuitarsControl();
+            this.billControl = new Forme.BillControl();
+            this.addGuitarControl = new Forme.AddGuitarControl();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.guitarStickerPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.mainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            this.panel1.Controls.Add(this.button7);
+            this.panel1.Controls.Add(this.btnHome);
             this.panel1.Controls.Add(this.slidePanel);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.btnAddGuitar);
+            this.panel1.Controls.Add(this.btnLogOut);
+            this.panel1.Controls.Add(this.btnGuitars);
             this.panel1.Controls.Add(this.btnBill);
+            this.panel1.Controls.Add(this.btnAddGuitar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(173, 515);
             this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // button7
+            // btnHome
             // 
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.SystemColors.Control;
-            this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
-            this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.Location = new System.Drawing.Point(9, 131);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(164, 54);
-            this.button7.TabIndex = 7;
-            this.button7.Text = "Home";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.btnHome.FlatAppearance.BorderSize = 0;
+            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHome.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHome.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnHome.Image = ((System.Drawing.Image)(resources.GetObject("btnHome.Image")));
+            this.btnHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHome.Location = new System.Drawing.Point(9, 131);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(164, 54);
+            this.btnHome.TabIndex = 7;
+            this.btnHome.Text = "Home";
+            this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // slidePanel
             // 
@@ -91,37 +95,37 @@
             this.slidePanel.Size = new System.Drawing.Size(10, 54);
             this.slidePanel.TabIndex = 6;
             // 
-            // button3
+            // btnLogOut
             // 
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.Control;
-            this.button3.Image = global::Forme.Properties.Resources.icons8_logout_rounded_down_25;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(9, 343);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(164, 54);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "Log out";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnLogOut.FlatAppearance.BorderSize = 0;
+            this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogOut.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogOut.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnLogOut.Image = global::Forme.Properties.Resources.icons8_logout_rounded_down_25;
+            this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogOut.Location = new System.Drawing.Point(9, 343);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(164, 54);
+            this.btnLogOut.TabIndex = 6;
+            this.btnLogOut.Text = "Log out";
+            this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
-            // button1
+            // btnGuitars
             // 
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(9, 202);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(164, 54);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Guitars";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnGuitars.FlatAppearance.BorderSize = 0;
+            this.btnGuitars.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuitars.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuitars.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnGuitars.Image = ((System.Drawing.Image)(resources.GetObject("btnGuitars.Image")));
+            this.btnGuitars.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGuitars.Location = new System.Drawing.Point(9, 202);
+            this.btnGuitars.Name = "btnGuitars";
+            this.btnGuitars.Size = new System.Drawing.Size(164, 54);
+            this.btnGuitars.TabIndex = 4;
+            this.btnGuitars.Text = "Guitars";
+            this.btnGuitars.UseVisualStyleBackColor = true;
+            this.btnGuitars.Click += new System.EventHandler(this.btnGuitars_Click);
             // 
             // btnBill
             // 
@@ -137,7 +141,7 @@
             this.btnBill.TabIndex = 5;
             this.btnBill.Text = "Bill";
             this.btnBill.UseVisualStyleBackColor = true;
-            this.btnBill.Click += new System.EventHandler(this.button2_Click);
+            this.btnBill.Click += new System.EventHandler(this.btnBill_Click);
             // 
             // btnAddGuitar
             // 
@@ -194,52 +198,52 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // panel3
+            // guitarStickerPanel
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(18)))), ((int)(((byte)(40)))));
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Controls.Add(this.pictureBox1);
-            this.panel3.Location = new System.Drawing.Point(233, 12);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(113, 149);
-            this.panel3.TabIndex = 2;
+            this.guitarStickerPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(18)))), ((int)(((byte)(40)))));
+            this.guitarStickerPanel.Controls.Add(this.pictureBox1);
+            this.guitarStickerPanel.Controls.Add(this.label2);
+            this.guitarStickerPanel.Location = new System.Drawing.Point(233, 12);
+            this.guitarStickerPanel.Name = "guitarStickerPanel";
+            this.guitarStickerPanel.Size = new System.Drawing.Size(104, 128);
+            this.guitarStickerPanel.TabIndex = 2;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(101, 98);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(7, 119);
+            this.label2.Location = new System.Drawing.Point(3, 104);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(97, 19);
             this.label2.TabIndex = 4;
             this.label2.Text = "Guitar shop";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // pictureBox1
+            // btnViewGuitars
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(107, 112);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(170)))), ((int)(((byte)(18)))), ((int)(((byte)(40)))));
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.SystemColors.Control;
-            this.button4.Location = new System.Drawing.Point(662, 398);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(203, 54);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "View Guitars";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.MouseHover += new System.EventHandler(this.button4_MouseHover);
+            this.btnViewGuitars.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(170)))), ((int)(((byte)(18)))), ((int)(((byte)(40)))));
+            this.btnViewGuitars.FlatAppearance.BorderSize = 0;
+            this.btnViewGuitars.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnViewGuitars.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewGuitars.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnViewGuitars.Location = new System.Drawing.Point(469, 348);
+            this.btnViewGuitars.Name = "btnViewGuitars";
+            this.btnViewGuitars.Size = new System.Drawing.Size(203, 54);
+            this.btnViewGuitars.TabIndex = 4;
+            this.btnViewGuitars.Text = "View Guitars";
+            this.btnViewGuitars.UseVisualStyleBackColor = false;
+            this.btnViewGuitars.Click += new System.EventHandler(this.btnViewGuitars_Click);
             // 
             // label1
             // 
@@ -247,7 +251,7 @@
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(199, 359);
+            this.label1.Location = new System.Drawing.Point(63, 340);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 22);
             this.label1.TabIndex = 5;
@@ -259,22 +263,58 @@
             this.lblName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblName.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblName.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblName.Location = new System.Drawing.Point(199, 398);
+            this.lblName.Location = new System.Drawing.Point(63, 380);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(66, 22);
             this.lblName.TabIndex = 6;
             this.lblName.Text = "Name";
             // 
+            // mainPanel
+            // 
+            this.mainPanel.BackgroundImage = global::Forme.Properties.Resources.Guitars_filter_1024x1024;
+            this.mainPanel.Controls.Add(this.btnViewGuitars);
+            this.mainPanel.Controls.Add(this.label1);
+            this.mainPanel.Controls.Add(this.lblName);
+            this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainPanel.Location = new System.Drawing.Point(173, 35);
+            this.mainPanel.Name = "mainPanel";
+            this.mainPanel.Size = new System.Drawing.Size(752, 480);
+            this.mainPanel.TabIndex = 9;
+            // 
+            // viewGuitarsControl
+            // 
+            this.viewGuitarsControl.BackColor = System.Drawing.Color.PeachPuff;
+            this.viewGuitarsControl.Location = new System.Drawing.Point(234, 161);
+            this.viewGuitarsControl.Name = "viewGuitarsControl";
+            this.viewGuitarsControl.Size = new System.Drawing.Size(632, 329);
+            this.viewGuitarsControl.TabIndex = 11;
+            // 
+            // billControl
+            // 
+            this.billControl.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.billControl.Location = new System.Drawing.Point(234, 161);
+            this.billControl.Name = "billControl";
+            this.billControl.Size = new System.Drawing.Size(632, 329);
+            this.billControl.TabIndex = 12;
+            // 
+            // addGuitarControl
+            // 
+            this.addGuitarControl.BackColor = System.Drawing.Color.YellowGreen;
+            this.addGuitarControl.Location = new System.Drawing.Point(234, 161);
+            this.addGuitarControl.Name = "addGuitarControl";
+            this.addGuitarControl.Size = new System.Drawing.Size(632, 329);
+            this.addGuitarControl.TabIndex = 13;
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Forme.Properties.Resources.Guitars_filter_1024x1024;
             this.ClientSize = new System.Drawing.Size(925, 515);
-            this.Controls.Add(this.lblName);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.addGuitarControl);
+            this.Controls.Add(this.billControl);
+            this.Controls.Add(this.viewGuitarsControl);
+            this.Controls.Add(this.guitarStickerPanel);
+            this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -284,11 +324,12 @@
             this.Text = "Guitar Shop";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.guitarStickerPanel.ResumeLayout(false);
+            this.guitarStickerPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.mainPanel.ResumeLayout(false);
+            this.mainPanel.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -296,20 +337,24 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel guitarStickerPanel;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnGuitars;
+        private System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.Button btnBill;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnViewGuitars;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel slidePanel;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Button btnAddGuitar;
+        private System.Windows.Forms.Panel mainPanel;
+        private ViewGuitarsControl viewGuitarsControl;
+        private BillControl billControl;
+        private AddGuitarControl addGuitarControl;
     }
 }
 

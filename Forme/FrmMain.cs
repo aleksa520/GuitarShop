@@ -38,36 +38,39 @@ namespace Forme
             {
                 btnAddGuitar.BringToFront();
             }
+            mainPanel.BringToFront();
+            guitarStickerPanel.BringToFront();
+            //addGuitarControl.SendToBack();
+            //viewGuitarsControl.SendToBack();
+            //viewGuitarsControl.SendToBack();
+            //billControl.SendToBack();
+            //billControl.SendToBack();
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
-
+            //addGuitarControl.SendToBack();
+            //viewGuitarsControl.SendToBack();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnGuitars_Click(object sender, EventArgs e)
         {
-            slidePanel.Height = button1.Height;
-            slidePanel.Top = button1.Top;
+            slidePanel.Height = btnGuitars.Height;
+            slidePanel.Top = btnGuitars.Top;
+            //addGuitarControl.SendToBack();
+            //billControl.SendToBack();
+            viewGuitarsControl.BringToFront();
         }
 
-        private void button4_MouseHover(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
+        private void btnBill_Click(object sender, EventArgs e)
         {
             slidePanel.Height = btnBill.Height;
             slidePanel.Top = btnBill.Top;
+            //viewGuitarsControl.SendToBack();
+            billControl.BringToFront();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btnLogOut_Click(object sender, EventArgs e)
         {
             string name = lblName.Text;
             if (Session.Instance.Customer != null && Session.Instance.Customer.ToString() == name)
@@ -79,8 +82,8 @@ namespace Forme
                 Session.Instance.Employee = null;
             }
 
-            slidePanel.Height = button3.Height;
-            slidePanel.Top = button3.Top;
+            slidePanel.Height = btnLogOut.Height;
+            slidePanel.Top = btnLogOut.Top;
             Hide();
             FrmLogin frmLogin = new FrmLogin();
             frmLogin.ShowDialog();
@@ -100,16 +103,30 @@ namespace Forme
             }
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void btnHome_Click(object sender, EventArgs e)
         {
-            slidePanel.Height = button7.Height;
-            slidePanel.Top = button7.Top;
+            slidePanel.Height = btnHome.Height;
+            slidePanel.Top = btnHome.Top;
+            //addGuitarControl.SendToBack();
+            //viewGuitarsControl.SendToBack();
+            //billControl.SendToBack();
+            mainPanel.BringToFront();
+            guitarStickerPanel.BringToFront();
         }
 
         private void btnAddGuitar_Click(object sender, EventArgs e)
         {
             slidePanel.Height = btnAddGuitar.Height;
             slidePanel.Top = btnAddGuitar.Top;
+            //viewGuitarsControl.SendToBack();
+            addGuitarControl.BringToFront();
+        }
+
+        private void btnViewGuitars_Click(object sender, EventArgs e)
+        {
+            //addGuitarControl.SendToBack();
+            //billControl.SendToBack();
+            viewGuitarsControl.BringToFront();
         }
     }
 }

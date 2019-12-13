@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddGuitarControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AddGuitarControl.Designer.cs">
+      <DependentUpon>AddGuitarControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BillControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BillControl.Designer.cs">
+      <DependentUpon>BillControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Communication.cs" />
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
@@ -79,6 +91,18 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Session.cs" />
+    <Compile Include="ViewGuitarsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ViewGuitarsControl.Designer.cs">
+      <DependentUpon>ViewGuitarsControl.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddGuitarControl.resx">
+      <DependentUpon>AddGuitarControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BillControl.resx">
+      <DependentUpon>BillControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -95,6 +119,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewGuitarsControl.resx">
+      <DependentUpon>ViewGuitarsControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
