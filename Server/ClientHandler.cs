@@ -28,15 +28,15 @@ namespace Server
             bool end = false;
             while (!end)
             {
-                Request request;
+                Request request = null;
                 try
                 {
                 request = (Request)formatter.Deserialize(stream);
                 }
                 catch (Exception)
                 {
+                    Communication.Instance.ShowMessageBox("Client Has Exited!");                    
                     return;
-                    //Communication.Instance.ShowMessageBox("Client Has Exited!");                    
                 }
                 Response response = new Response();
                 try

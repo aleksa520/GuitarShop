@@ -135,9 +135,12 @@ namespace Forme
         {
             try
             {
-                clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                clientSocket.Connect("localhost", 9090);
-                stream = new NetworkStream(clientSocket);
+                if(clientSocket == null || !clientSocket.Connected)
+                {
+                    clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                    clientSocket.Connect("localhost", 9090);
+                    stream = new NetworkStream(clientSocket);
+                }
                 return true;
             }
             catch (SocketException)

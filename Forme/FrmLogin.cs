@@ -85,7 +85,7 @@ namespace Forme
 
         private void txtUsername_KeyDown(object sender, KeyEventArgs e)
         {
-            txtUsername.BringToFront();
+            //txtUsername.BringToFront();
         }
 
         private void check()
@@ -96,11 +96,11 @@ namespace Forme
                 while (true)
                 {
 
-                    this.Invoke(new Action(() =>
-                    {
-                        if (txtUsername.Text == "")
-                            txtUsername.SendToBack();
-                    }));
+                    //this.Invoke(new Action(() =>
+                    //{
+                    //    if (txtUsername.Text == "")
+                    //        txtUsername.SendToBack();
+                    //}));
 
                     this.Invoke(new Action(() =>
                     {
@@ -126,6 +126,23 @@ namespace Forme
         {
             Hide();
             Close();
+        }
+
+        private void txtUsername_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtUsername.Text))
+            {
+                label2.Visible = true;
+            }
+            else
+            {
+                label2.Visible = false;
+            }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            txtUsername.Focus();
         }
     }
 }
