@@ -40,25 +40,12 @@ namespace Forme
             }
             mainPanel.BringToFront();
             guitarStickerPanel.BringToFront();
-            //addGuitarControl.SendToBack();
-            //viewGuitarsControl.SendToBack();
-            //viewGuitarsControl.SendToBack();
-            //billControl.SendToBack();
-            //billControl.SendToBack();
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-            //addGuitarControl.SendToBack();
-            //viewGuitarsControl.SendToBack();
         }
 
         private void btnGuitars_Click(object sender, EventArgs e)
         {
             slidePanel.Height = btnGuitars.Height;
             slidePanel.Top = btnGuitars.Top;
-            //addGuitarControl.SendToBack();
-            //billControl.SendToBack();
             viewGuitarsControl.BringToFront();
         }
 
@@ -66,7 +53,6 @@ namespace Forme
         {
             slidePanel.Height = btnBill.Height;
             slidePanel.Top = btnBill.Top;
-            //viewGuitarsControl.SendToBack();
             billControl.BringToFront();
         }
 
@@ -107,9 +93,6 @@ namespace Forme
         {
             slidePanel.Height = btnHome.Height;
             slidePanel.Top = btnHome.Top;
-            //addGuitarControl.SendToBack();
-            //viewGuitarsControl.SendToBack();
-            //billControl.SendToBack();
             mainPanel.BringToFront();
             guitarStickerPanel.BringToFront();
         }
@@ -118,14 +101,13 @@ namespace Forme
         {
             slidePanel.Height = btnAddGuitar.Height;
             slidePanel.Top = btnAddGuitar.Top;
-            //viewGuitarsControl.SendToBack();
             addGuitarControl.BringToFront();
         }
 
         private void btnViewGuitars_Click(object sender, EventArgs e)
         {
-            //addGuitarControl.SendToBack();
-            //billControl.SendToBack();
+            slidePanel.Height = btnGuitars.Height;
+            slidePanel.Top = btnGuitars.Top;
             viewGuitarsControl.BringToFront();
         }
     }

@@ -129,8 +129,6 @@ namespace Forme
             }
         }
 
-        
-
         public bool Connect()
         {
             try

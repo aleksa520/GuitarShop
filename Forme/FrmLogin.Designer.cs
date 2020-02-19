@@ -87,7 +87,6 @@
             this.txtUsername.Size = new System.Drawing.Size(258, 27);
             this.txtUsername.TabIndex = 1;
             this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
-            this.txtUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUsername_KeyDown);
             // 
             // txtPassword
             // 
@@ -98,7 +97,7 @@
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(258, 27);
             this.txtPassword.TabIndex = 2;
-            this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyDown);
+            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // btnLogin
             // 
@@ -135,7 +134,7 @@
             this.label2.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Gray;
-            this.label2.Location = new System.Drawing.Point(191, 85);
+            this.label2.Location = new System.Drawing.Point(32, 85);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 21);
             this.label2.TabIndex = 5;
@@ -146,16 +145,19 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.White;
+            this.label3.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Gray;
-            this.label3.Location = new System.Drawing.Point(191, 145);
+            this.label3.Location = new System.Drawing.Point(32, 145);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(82, 21);
             this.label3.TabIndex = 6;
             this.label3.Text = "Password";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // FrmLogin
             // 
+            this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(318, 291);

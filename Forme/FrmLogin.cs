@@ -15,16 +15,11 @@ namespace Forme
 {
     public partial class FrmLogin : Form
     {
-        private Thread thread;
-
         public FrmLogin()
         {
             InitializeComponent();
             txtUsername.SendToBack();
             txtPassword.SendToBack();
-            thread = new Thread(check);
-            thread.IsBackground = true;
-            thread.Start();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -46,7 +41,6 @@ namespace Forme
                     Session.Instance.Customer = cust;
                     FrmMain frmMain = new FrmMain(FormType.CustomerForm);
                     frmMain.ShowDialog();
-                    thread.Interrupt();
                     Close();
                     return;
                 }
@@ -59,7 +53,6 @@ namespace Forme
                     Session.Instance.Employee = emp;
                     FrmMain frmMain = new FrmMain(FormType.EmployeeForm);
                     frmMain.ShowDialog();
-                    thread.Interrupt();
                     Close();
                     return;
                 }
@@ -79,47 +72,7 @@ namespace Forme
             Hide();
             FrmRegister frmRegister = new FrmRegister();
             frmRegister.ShowDialog();
-            thread.Interrupt();
             Close();
-        }
-
-        private void txtUsername_KeyDown(object sender, KeyEventArgs e)
-        {
-            //txtUsername.BringToFront();
-        }
-
-        private void check()
-        {
-            try
-            {
-                Thread.Sleep(2000);
-                while (true)
-                {
-
-                    //this.Invoke(new Action(() =>
-                    //{
-                    //    if (txtUsername.Text == "")
-                    //        txtUsername.SendToBack();
-                    //}));
-
-                    this.Invoke(new Action(() =>
-                    {
-                        if (txtPassword.Text == "")
-                            txtPassword.SendToBack();
-                    }));
-
-                    Thread.Sleep(100);
-                }
-            }
-            catch (ThreadInterruptedException e)
-            {
-                Debug.WriteLine(">>> " + e.Message);
-            }
-        }
-
-        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
-        {
-            txtPassword.BringToFront();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -143,6 +96,23 @@ namespace Forme
         private void label2_Click(object sender, EventArgs e)
         {
             txtUsername.Focus();
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtPassword.Text))
+            {
+                label3.Visible = true;
+            }
+            else
+            {
+                label3.Visible = false;
+            }
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            txtPassword.Focus();
         }
     }
 }
