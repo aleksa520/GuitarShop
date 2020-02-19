@@ -110,5 +110,20 @@ namespace Controller
 
             return employee;
         }
+
+        public List<ArticleType> GetAllArticleTypes()
+        {
+            broker.OpenConnection();
+            List<ArticleType> articleTypes = broker.GetAllArticleTypes();
+            broker.CloseConnection();
+            return articleTypes;
+        }
+        public List<Manufacturer> GetAllManufacturers()
+        {
+            broker.OpenConnection();
+            List<Manufacturer> manufacturers = broker.GetAllManufacturers();
+            broker.CloseConnection();
+            return manufacturers;
+        }
     }
 }

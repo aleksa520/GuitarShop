@@ -18,6 +18,8 @@ namespace Domain
         CustomerLogin,
         CustomerRegistration,
         GetAllArticles,
-        Validation
+        Validation,
+        GetAllArticleTypes,
+        GetAllManufacturers
     }
 }

@@ -76,6 +76,14 @@ namespace Server
                             response.Object = foundCustomer;
                             formatter.Serialize(stream, response);
                             break;
+                        case Operation.GetAllArticleTypes:
+                            response.Object = Controller.Controller.Instance.GetAllArticleTypes();
+                            formatter.Serialize(stream, response);
+                            break;
+                        case Operation.GetAllManufacturers:
+                            response.Object = Controller.Controller.Instance.GetAllManufacturers();
+                            formatter.Serialize(stream, response);
+                            break;
                     }
                 }
                 catch (Exception e)

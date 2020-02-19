@@ -103,5 +103,47 @@ namespace DatabaseBroker
             command.Parameters.AddWithValue("@Password", customer.Password);
             return command.ExecuteNonQuery();
         }
+
+        public List<ArticleType> GetAllArticleTypes()
+        {
+            List<ArticleType> articleTypes = new List<ArticleType>();
+
+            SqlCommand command = connection.CreateCommand();
+            command.CommandText = "SELECT * FROM ArticleType";
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                ArticleType at = new ArticleType
+                {
+                    Id = reader.GetInt32(0),
+                    Name = reader.GetString(1),                   
+                };
+                articleTypes.Add(at);
+            }
+            reader.Close();
+            return articleTypes;
+        }
+
+        public List<Manufacturer> GetAllManufacturers()
+        {
+            List<Manufacturer> manufacturers = new List<Manufacturer>();
+
+            SqlCommand command = connection.CreateCommand();
+            command.CommandText = "SELECT * FROM Manufacturer";
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Manufacturer ma = new Manufacturer
+                {
+                    Id = reader.GetInt32(0),
+                    Name = reader.GetString(1),
+                };
+                manufacturers.Add(ma);
+            }
+            reader.Close();
+            return manufacturers;
+        }
     }
 }

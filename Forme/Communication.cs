@@ -15,7 +15,33 @@ namespace Forme
         private Socket clientSocket;
         private NetworkStream stream;
         private BinaryFormatter formatter = new BinaryFormatter();
-        
+
+        internal List<ArticleType> GetArticleTypes()
+        {
+            Request req = new Request()
+            {
+                Operation = Operation.GetAllArticleTypes
+            };
+
+            formatter.Serialize(stream, req);
+            Response res = (Response)formatter.Deserialize(stream);
+
+            return (List<ArticleType>)res.Object;
+        }
+
+        internal List<Manufacturer> GetManufacturers()
+        {
+            Request req = new Request()
+            {
+                Operation = Operation.GetAllManufacturers
+            };
+
+            formatter.Serialize(stream, req);
+            Response res = (Response)formatter.Deserialize(stream);
+
+            return (List<Manufacturer>)res.Object;
+        }
+
         private Communication()
         {
         }
