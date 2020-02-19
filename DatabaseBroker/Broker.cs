@@ -67,6 +67,32 @@ namespace DatabaseBroker
             return customers;
         }
 
+        public List<Employee> GetAllEmployees()
+        {
+            List<Employee> employees = new List<Employee>();
+
+            SqlCommand command = connection.CreateCommand();
+            command.CommandText = "SELECT * FROM Employee";
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Employee emp = new Employee
+                {
+                    Id = reader.GetInt32(0),
+                    FirstName = reader.GetString(1),
+                    LastName = reader.GetString(2),
+                    JMBG = reader.GetString(3),
+                    Birthday = reader.GetDateTime(4),
+                    Username = reader.GetString(5),
+                    Password = reader.GetString(6)
+                };
+                employees.Add(emp);
+            }
+            reader.Close();
+            return employees;
+        }
+
         public int CustomerRegistration(Customer customer)
         {
             SqlCommand command = connection.CreateCommand();

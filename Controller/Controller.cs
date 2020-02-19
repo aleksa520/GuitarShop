@@ -31,7 +31,7 @@ namespace Controller
         {
             EmployeeStorage employeeStorage = new EmployeeStorage();
 
-            List<Employee> employees = employeeStorage.GetEmployees();
+            List<Employee> employees = GetAllEmployees();
 
             foreach(Employee emp in employees)
             {
@@ -41,6 +41,14 @@ namespace Controller
                 }
             }        
             throw new Exception("User Not Found!");
+        }
+
+        private List<Employee> GetAllEmployees()
+        {
+            broker.OpenConnection();
+            List<Employee> employee = broker.GetAllEmployees();
+            broker.CloseConnection();
+            return employee;
         }
 
         public Customer CustomerLogin(string username, string password)
