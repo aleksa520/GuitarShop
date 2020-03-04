@@ -18,6 +18,7 @@ namespace Forme
         public ViewBillsControl()
         {
             InitializeComponent();
+            Bills = new BindingList<Bill>();
             Bills = new BindingList<Bill>(Communication.Instance.GetBills());
             dataGridView1.DataSource = Bills;
         }

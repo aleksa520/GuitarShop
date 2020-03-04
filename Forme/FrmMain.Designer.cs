@@ -49,6 +49,7 @@
             this.billControl = new Forme.BillControl();
             this.viewGuitarsControl = new Forme.ViewGuitarsControl();
             this.addGuitarControl = new Forme.AddGuitarControl();
+            this.viewBillsControl = new Forme.ViewBillsControl();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.guitarStickerPanel.SuspendLayout();
@@ -306,6 +307,14 @@
             this.addGuitarControl.Size = new System.Drawing.Size(632, 329);
             this.addGuitarControl.TabIndex = 13;
             // 
+            // viewBillsControl
+            // 
+            this.viewBillsControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(18)))), ((int)(((byte)(40)))));
+            this.viewBillsControl.Location = new System.Drawing.Point(234, 161);
+            this.viewBillsControl.Name = "viewBillsControl";
+            this.viewBillsControl.Size = new System.Drawing.Size(632, 329);
+            this.viewBillsControl.TabIndex = 12;
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -315,6 +324,7 @@
             this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.viewGuitarsControl);
             this.Controls.Add(this.addGuitarControl);
+            this.Controls.Add(this.viewBillsControl);
             this.Controls.Add(this.billControl);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -356,6 +366,7 @@
         private AddGuitarControl addGuitarControl;
         private ViewGuitarsControl viewGuitarsControl;
         private BillControl billControl;
+        private ViewBillsControl viewBillsControl;
     }
 }
 

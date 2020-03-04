@@ -108,7 +108,7 @@ namespace Forme
         {
             //slidePanel.Height = btnGuitars.Height;
             //slidePanel.Top = btnGuitars.Top;
-            //viewGuitarsControl.BringToFront();
+            viewBillsControl.BringToFront();
         }
     }
 }
