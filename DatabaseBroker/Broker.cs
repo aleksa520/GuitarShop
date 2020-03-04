@@ -67,30 +67,57 @@ namespace DatabaseBroker
             return customers;
         }
 
-        public List<Employee> GetAllEmployees()
+        public List<IDomainObject> GetListFull(IDomainObject obj)
         {
-            List<Employee> employees = new List<Employee>();
-
-            SqlCommand command = connection.CreateCommand();
-            command.CommandText = "SELECT * FROM Employee";
+            SqlCommand command = new SqlCommand("", connection, transaction);
+            command.CommandText = $"{obj.Get} {obj.FullTable} {obj.Join}";
             SqlDataReader reader = command.ExecuteReader();
+            return obj.GetReaderResult(reader);
+        }
 
-            while (reader.Read())
+        public List<IDomainObject> GetList(IDomainObject obj)
+        {
+            SqlCommand command = new SqlCommand("", connection, transaction);
+            command.CommandText = $"{obj.Get} {obj.Table} {obj.Join}";
+            SqlDataReader reader = command.ExecuteReader();
+            return obj.GetReaderResult(reader);
+        }
+
+        public bool Add(IDomainObject obj)
+        {
+            SqlCommand command = new SqlCommand("", connection, transaction);
+            command.CommandText = $"INSERT INTO {obj.Table} VALUES({obj.InsertValues})";
+            return command.ExecuteNonQuery() == 1;
+        }
+
+        public bool Update(IDomainObject obj)
+        {
+            SqlCommand command = new SqlCommand("", connection, transaction);
+            command.CommandText = $"UPDATE {obj.Table} SET {obj.UpdateValues} {obj.SearchWhere()}";
+            return command.ExecuteNonQuery() == 1;
+        }
+
+        public int GetId(IDomainObject obj)
+        {
+            try
             {
-                Employee emp = new Employee
-                {
-                    Id = reader.GetInt32(0),
-                    FirstName = reader.GetString(1),
-                    LastName = reader.GetString(2),
-                    JMBG = reader.GetString(3),
-                    Birthday = reader.GetDateTime(4),
-                    Username = reader.GetString(5),
-                    Password = reader.GetString(6)
-                };
-                employees.Add(emp);
+                SqlCommand command = new SqlCommand("", connection, transaction);
+                command.CommandText = $"SELECT MAX ({obj.ColumnId.ToString()}) FROM {obj.Table}";
+                int id = Int32.Parse(command.ExecuteScalar().ToString());
+                return id;
             }
-            reader.Close();
-            return employees;
+            catch (Exception)
+            {
+                return 1;
+                throw;
+            }
+        }
+
+        public bool Delete(IDomainObject obj)
+        {
+            SqlCommand command = new SqlCommand("", connection, transaction);
+            command.CommandText = $"DELETE FROM {obj.Table} {obj.SearchWhere()}";
+            return command.ExecuteNonQuery() == 1;
         }
 
         public int CustomerRegistration(Customer customer)

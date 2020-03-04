@@ -20,6 +20,12 @@ namespace Domain
         GetAllArticles,
         Validation,
         GetAllArticleTypes,
-        GetAllManufacturers
+        GetAllManufacturers,
+        GetArticles,
+        AddArticle,
+        DeleteArticle,
+        UpdateArticle,
+        AddBill,
+        GetBills
     }
 }

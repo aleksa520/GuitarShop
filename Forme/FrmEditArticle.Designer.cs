@@ -1,6 +1,6 @@
 ﻿namespace Forme
 {
-    partial class FrmRegister
+    partial class FrmEditArticle
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegister));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEditArticle));
             this.panel1 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -36,11 +36,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.btnRegister = new System.Windows.Forms.Button();
-            this.txtFirstName = new System.Windows.Forms.TextBox();
-            this.txtLastName = new System.Windows.Forms.TextBox();
-            this.txtUsername = new System.Windows.Forms.TextBox();
-            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtPrice = new System.Windows.Forms.TextBox();
+            this.cmbManufacturer = new System.Windows.Forms.ComboBox();
+            this.cmbArticleType = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,9 +76,9 @@
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
             this.label1.Location = new System.Drawing.Point(106, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(118, 23);
+            this.label1.Size = new System.Drawing.Size(109, 23);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Registration";
+            this.label1.Text = "Edit Article";
             // 
             // label2
             // 
@@ -86,9 +86,9 @@
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(27, 83);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 21);
+            this.label2.Size = new System.Drawing.Size(58, 21);
             this.label2.TabIndex = 2;
-            this.label2.Text = "First Name";
+            this.label2.Text = "Name";
             // 
             // label3
             // 
@@ -96,9 +96,9 @@
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(27, 145);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(93, 21);
+            this.label3.Size = new System.Drawing.Size(47, 21);
             this.label3.TabIndex = 3;
-            this.label3.Text = "Last Name";
+            this.label3.Text = "Price";
             // 
             // label4
             // 
@@ -106,10 +106,9 @@
             this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(27, 207);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(88, 21);
+            this.label4.Size = new System.Drawing.Size(119, 21);
             this.label4.TabIndex = 4;
-            this.label4.Text = "Username";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+            this.label4.Text = "Manufacturer";
             // 
             // label5
             // 
@@ -117,77 +116,74 @@
             this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(27, 265);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(82, 21);
+            this.label5.Size = new System.Drawing.Size(98, 21);
             this.label5.TabIndex = 5;
-            this.label5.Text = "Password";
+            this.label5.Text = "ArticleType";
             // 
-            // btnRegister
+            // btnEdit
             // 
-            this.btnRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(18)))), ((int)(((byte)(40)))));
-            this.btnRegister.FlatAppearance.BorderSize = 0;
-            this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegister.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegister.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnRegister.Location = new System.Drawing.Point(30, 337);
-            this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(258, 40);
-            this.btnRegister.TabIndex = 6;
-            this.btnRegister.Text = "Register";
-            this.btnRegister.UseVisualStyleBackColor = false;
-            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
+            this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(18)))), ((int)(((byte)(40)))));
+            this.btnEdit.FlatAppearance.BorderSize = 0;
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEdit.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnEdit.Location = new System.Drawing.Point(30, 337);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(258, 40);
+            this.btnEdit.TabIndex = 6;
+            this.btnEdit.Text = "Done";
+            this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
-            // txtFirstName
+            // txtName
             // 
-            this.txtFirstName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtFirstName.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFirstName.ForeColor = System.Drawing.Color.Black;
-            this.txtFirstName.Location = new System.Drawing.Point(30, 107);
-            this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(258, 27);
-            this.txtFirstName.TabIndex = 7;
+            this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtName.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName.ForeColor = System.Drawing.Color.Black;
+            this.txtName.Location = new System.Drawing.Point(30, 107);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(258, 27);
+            this.txtName.TabIndex = 7;
             // 
-            // txtLastName
+            // txtPrice
             // 
-            this.txtLastName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtLastName.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLastName.ForeColor = System.Drawing.Color.Black;
-            this.txtLastName.Location = new System.Drawing.Point(30, 169);
-            this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(258, 27);
-            this.txtLastName.TabIndex = 8;
+            this.txtPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPrice.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrice.ForeColor = System.Drawing.Color.Black;
+            this.txtPrice.Location = new System.Drawing.Point(30, 169);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Size = new System.Drawing.Size(258, 27);
+            this.txtPrice.TabIndex = 8;
             // 
-            // txtUsername
+            // cmbManufacturer
             // 
-            this.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtUsername.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsername.ForeColor = System.Drawing.Color.Black;
-            this.txtUsername.Location = new System.Drawing.Point(30, 231);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(258, 27);
-            this.txtUsername.TabIndex = 9;
+            this.cmbManufacturer.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.cmbManufacturer.FormattingEnabled = true;
+            this.cmbManufacturer.Location = new System.Drawing.Point(30, 233);
+            this.cmbManufacturer.Name = "cmbManufacturer";
+            this.cmbManufacturer.Size = new System.Drawing.Size(258, 29);
+            this.cmbManufacturer.TabIndex = 9;
             // 
-            // txtPassword
+            // cmbArticleType
             // 
-            this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPassword.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.ForeColor = System.Drawing.Color.Black;
-            this.txtPassword.Location = new System.Drawing.Point(30, 289);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(258, 27);
-            this.txtPassword.TabIndex = 10;
+            this.cmbArticleType.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.cmbArticleType.FormattingEnabled = true;
+            this.cmbArticleType.Location = new System.Drawing.Point(31, 289);
+            this.cmbArticleType.Name = "cmbArticleType";
+            this.cmbArticleType.Size = new System.Drawing.Size(258, 29);
+            this.cmbArticleType.TabIndex = 10;
             // 
-            // FrmRegister
+            // FrmEditArticle
             // 
-            this.AcceptButton = this.btnRegister;
+            this.AcceptButton = this.btnEdit;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(318, 398);
-            this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.txtUsername);
-            this.Controls.Add(this.txtLastName);
-            this.Controls.Add(this.txtFirstName);
-            this.Controls.Add(this.btnRegister);
+            this.Controls.Add(this.cmbArticleType);
+            this.Controls.Add(this.cmbManufacturer);
+            this.Controls.Add(this.txtPrice);
+            this.Controls.Add(this.txtName);
+            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -195,7 +191,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FrmRegister";
+            this.Name = "FrmEditArticle";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register";
             this.panel1.ResumeLayout(false);
@@ -213,11 +209,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnRegister;
-        private System.Windows.Forms.TextBox txtFirstName;
-        private System.Windows.Forms.TextBox txtLastName;
-        private System.Windows.Forms.TextBox txtUsername;
-        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.TextBox txtPrice;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.ComboBox cmbManufacturer;
+        private System.Windows.Forms.ComboBox cmbArticleType;
     }
 }

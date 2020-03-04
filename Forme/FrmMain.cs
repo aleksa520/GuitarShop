@@ -106,9 +106,9 @@ namespace Forme
 
         private void btnViewGuitars_Click(object sender, EventArgs e)
         {
-            slidePanel.Height = btnGuitars.Height;
-            slidePanel.Top = btnGuitars.Top;
-            viewGuitarsControl.BringToFront();
+            //slidePanel.Height = btnGuitars.Height;
+            //slidePanel.Top = btnGuitars.Top;
+            //viewGuitarsControl.BringToFront();
         }
     }
 }

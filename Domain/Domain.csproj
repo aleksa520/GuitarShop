@@ -44,6 +44,7 @@
     <Compile Include="Article.cs" />
     <Compile Include="ArticleType.cs" />
     <Compile Include="Bill.cs" />
+    <Compile Include="IDomainObject.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="Employee.cs" />

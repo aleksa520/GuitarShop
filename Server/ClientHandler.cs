@@ -45,6 +45,8 @@ namespace Server
                     Customer foundCustomer = null;
                     Employee emp = null;
                     Employee foundEmployee = null;
+                    Article article = null;
+                    Bill bill = null;
 
                     switch (request.Operation)
                     {
@@ -82,6 +84,34 @@ namespace Server
                             break;
                         case Operation.GetAllManufacturers:
                             response.Object = Controller.Controller.Instance.GetAllManufacturers();
+                            formatter.Serialize(stream, response);
+                            break;
+                        case Operation.GetArticles:
+                            response.Object = Controller.Controller.Instance.GetArticles();
+                            formatter.Serialize(stream, response);
+                            break;
+                        case Operation.AddArticle:
+                            article = (Article)request.Object;
+                            response.Object = Controller.Controller.Instance.AddArticle(article);
+                            formatter.Serialize(stream, response);
+                            break;
+                        case Operation.DeleteArticle:
+                            article = (Article)request.Object;
+                            response.Object = Controller.Controller.Instance.DeleteArticle(article);
+                            formatter.Serialize(stream, response);
+                            break;
+                        case Operation.UpdateArticle:
+                            article = (Article)request.Object;
+                            response.Object = Controller.Controller.Instance.UpdateArticle(article);
+                            formatter.Serialize(stream, response);
+                            break;
+                        case Operation.AddBill:
+                            bill = (Bill)request.Object;
+                            response.Object = Controller.Controller.Instance.AddBill(bill);
+                            formatter.Serialize(stream, response);
+                            break;
+                        case Operation.GetBills:
+                            response.Object = Controller.Controller.Instance.GetBills();
                             formatter.Serialize(stream, response);
                             break;
                     }

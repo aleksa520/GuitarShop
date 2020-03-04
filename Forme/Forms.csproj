@@ -71,6 +71,12 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmEditArticle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEditArticle.Designer.cs">
+      <DependentUpon>FrmEditArticle.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmRegister.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +97,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Session.cs" />
+    <Compile Include="ViewBillsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ViewBillsControl.Designer.cs">
+      <DependentUpon>ViewBillsControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewGuitarsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -109,6 +121,9 @@
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmEditArticle.resx">
+      <DependentUpon>FrmEditArticle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmRegister.resx">
       <DependentUpon>FrmRegister.cs</DependentUpon>
     </EmbeddedResource>
@@ -119,6 +134,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewBillsControl.resx">
+      <DependentUpon>ViewBillsControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewGuitarsControl.resx">
       <DependentUpon>ViewGuitarsControl.cs</DependentUpon>

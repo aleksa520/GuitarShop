@@ -1,6 +1,7 @@
 ﻿using Domain;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Net.Sockets;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -15,6 +16,49 @@ namespace Forme
         private Socket clientSocket;
         private NetworkStream stream;
         private BinaryFormatter formatter = new BinaryFormatter();
+        private Communication()
+        {
+        }
+
+        internal List<Bill> GetBills()
+        {
+            Request req = new Request()
+            {
+                Operation = Operation.GetBills
+            };
+
+            formatter.Serialize(stream, req);
+            Response res = (Response)formatter.Deserialize(stream);
+
+            return (List<Bill>)res.Object;
+        }
+
+        internal List<Article> GetArticles()
+        {
+            Request req = new Request()
+            {
+                Operation = Operation.GetArticles
+            };
+
+            formatter.Serialize(stream, req);
+            Response res = (Response)formatter.Deserialize(stream);
+
+            return (List<Article>)res.Object;
+        }
+
+        internal bool AddBill(Bill bill)
+        {
+            Request req = new Request()
+            {
+                Operation = Operation.AddBill,
+                Object = bill
+            };
+
+            formatter.Serialize(stream, req);
+            Response res = (Response)formatter.Deserialize(stream);
+
+            return (bool)res.Object;
+        }
 
         internal List<ArticleType> GetArticleTypes()
         {
@@ -42,8 +86,45 @@ namespace Forme
             return (List<Manufacturer>)res.Object;
         }
 
-        private Communication()
+        internal bool AddArticle(Article article)
         {
+            Request req = new Request()
+            {
+                Operation = Operation.AddArticle,
+                Object = article
+            };
+
+            formatter.Serialize(stream, req);
+            Response res = (Response)formatter.Deserialize(stream);
+
+            return (bool)res.Object;
+        }
+
+        internal bool DeleteArticle(Article article)
+        {
+            Request req = new Request()
+            {
+                Operation = Operation.DeleteArticle,
+                Object = article
+            };
+
+            formatter.Serialize(stream, req);
+            Response res = (Response)formatter.Deserialize(stream);
+
+            return (bool)res.Object;
+        }
+        internal bool UpdateArticle(Article article)
+        {
+            Request req = new Request()
+            {
+                Operation = Operation.UpdateArticle,
+                Object = article
+            };
+
+            formatter.Serialize(stream, req);
+            Response res = (Response)formatter.Deserialize(stream);
+
+            return (bool)res.Object;
         }
 
         public static Communication Instance
@@ -108,6 +189,7 @@ namespace Forme
                 return null;
             }
         }
+
 
         internal bool Validation(string username)
         {
