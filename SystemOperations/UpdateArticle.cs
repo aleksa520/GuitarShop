@@ -1,4 +1,5 @@
-﻿using Domain;
+﻿using DatabaseBroker;
+using Domain;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,7 +13,7 @@ namespace SystemOperations
         {
             Article article = (Article)obj;
             Article = article;
-            return broker.Update(obj);
+            return Broker.Instance.Update(obj);
         }
 
         protected override void Validation(IDomainObject obj)

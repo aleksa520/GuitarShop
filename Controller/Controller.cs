@@ -14,7 +14,6 @@ namespace Controller
     public class Controller
     {
         private static Controller instance;
-        private Broker broker = new Broker();
 
         public static Controller Instance
         {
@@ -31,8 +30,6 @@ namespace Controller
 
         public Employee EmployeeLogin(string username, string password)
         {
-            EmployeeStorage employeeStorage = new EmployeeStorage();
-
             List<Employee> employees = GetAllEmployees();
 
             foreach (Employee emp in employees)
@@ -67,9 +64,9 @@ namespace Controller
             AddBill ab = new AddBill();
 
             ab.Execute(bill);
-            broker.OpenConnection();
-            int id = broker.GetId(bill);
-            broker.CloseConnection();
+            Broker.Instance.OpenConnection();
+            int id = Broker.Instance.GetId(bill);
+            Broker.Instance.CloseConnection();
 
             foreach (var item  in bill.Items)
             {
@@ -103,8 +100,8 @@ namespace Controller
         {
             try
             {
-                broker.OpenConnection();
-                return broker.GetList(new Employee()).OfType<Employee>().ToList();
+                Broker.Instance.OpenConnection();
+                return Broker.Instance.GetList(new Employee()).OfType<Employee>().ToList();
             }
             catch (Exception)
             {
@@ -112,7 +109,7 @@ namespace Controller
             }
             finally
             {
-                broker.CloseConnection();
+                Broker.Instance.CloseConnection();
             }
         }
 
@@ -132,10 +129,8 @@ namespace Controller
 
         public List<Customer> GetAllCustomers()
         {
-            broker.OpenConnection();
-            List<Customer> customers = broker.GetAllCustomers();
-            broker.CloseConnection();
-            return customers;
+            GetCustomers ga = new GetCustomers();
+            return ga.Execute(new Customer()) as List<Customer>;
         }
 
         public Customer CustomerRegistration(Customer customer)
@@ -150,12 +145,9 @@ namespace Controller
                 }
             }
 
-            broker.OpenConnection();
-            if (broker.CustomerRegistration(customer) == 0)
-            {
-                throw new Exception();
-            }
-            broker.CloseConnection();
+            AddCustomer addc = new AddCustomer();
+            addc.Execute(customer);
+
             return customer;
         }
 
@@ -172,23 +164,19 @@ namespace Controller
                     throw new Exception("Username Allready Exists!");
                 }
             }
-
             return employee;
         }
 
         public List<ArticleType> GetAllArticleTypes()
         {
-            broker.OpenConnection();
-            List<ArticleType> articleTypes = broker.GetAllArticleTypes();
-            broker.CloseConnection();
-            return articleTypes;
+            SystemOperations.GetArticleTypes gat = new SystemOperations.GetArticleTypes();
+            return gat.Execute(new ArticleType()) as List<ArticleType>;
+
         }
         public List<Manufacturer> GetAllManufacturers()
         {
-            broker.OpenConnection();
-            List<Manufacturer> manufacturers = broker.GetAllManufacturers();
-            broker.CloseConnection();
-            return manufacturers;
+            GetManufacturers gm = new GetManufacturers();
+            return gm.Execute(new Manufacturer()) as List<Manufacturer>;
         }
     }
 }

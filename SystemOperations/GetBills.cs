@@ -1,4 +1,5 @@
-﻿using Domain;
+﻿using DatabaseBroker;
+using Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace SystemOperations
         protected override object ExecuteSpecificOperation(IDomainObject obj)
         {
             Bill = (Bill)obj;
-            return broker.GetListFull(obj).OfType<Bill>().ToList();
+            return Broker.Instance.GetListFull(obj).OfType<Bill>().ToList();
         }
 
         protected override void Validation(IDomainObject obj)

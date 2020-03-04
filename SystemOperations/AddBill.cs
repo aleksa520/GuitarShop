@@ -1,4 +1,5 @@
-﻿using Domain;
+﻿using DatabaseBroker;
+using Domain;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -15,7 +16,7 @@ namespace SystemOperations
             Bill = bill;
             bill.Date = DateTime.Now;
 
-            return broker.Add(obj);
+            return Broker.Instance.Add(obj);
         }
 
         protected override void Validation(IDomainObject obj)

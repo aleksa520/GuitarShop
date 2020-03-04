@@ -6,19 +6,19 @@ using System.Text;
 
 namespace SystemOperations
 {
-    public class AddArticle : CommonSystemOperation
+    public class AddCustomer : CommonSystemOperation
     {
-        public Article Article { get; private set; }
+        public Customer Customer { get; private set; }
 
         protected override object ExecuteSpecificOperation(IDomainObject obj)
         {
-            Article = (Article)obj;
+            Customer = (Customer)obj;
             return Broker.Instance.Add(obj);
         }
 
         protected override void Validation(IDomainObject obj)
         {
-            if(!(obj is Article))
+            if (!(obj is Customer))
             {
                 throw new ArgumentException();
             }

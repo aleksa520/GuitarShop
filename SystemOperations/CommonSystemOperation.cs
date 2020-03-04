@@ -6,7 +6,6 @@ namespace SystemOperations
 {
     public abstract class CommonSystemOperation
     {
-        protected Broker broker = new Broker();
         protected abstract void Validation(IDomainObject obj);
         protected abstract object ExecuteSpecificOperation(IDomainObject obj);
         public object Execute(IDomainObject obj)
@@ -14,22 +13,22 @@ namespace SystemOperations
             try
             {
                 Validation(obj);
-                broker.OpenConnection();
-                broker.BeginTransaction();
+                Broker.Instance.OpenConnection();
+                Broker.Instance.BeginTransaction();
                 object result = ExecuteSpecificOperation(obj);
-                broker.Commit();
+                Broker.Instance.Commit();
                 return result;
             }
             catch (Exception e)
             {
                 String s = e.Message;
-                broker.Rollback();
+                Broker.Instance.Rollback();
                 return null;
                 throw;
             }
             finally
             {
-                broker.CloseConnection();
+                Broker.Instance.CloseConnection();
             }
         }
     }

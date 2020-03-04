@@ -1,4 +1,5 @@
-﻿using Domain;
+﻿using DatabaseBroker;
+using Domain;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,7 +13,7 @@ namespace SystemOperations
         {
             Item = (Item)obj;
 
-            int id = broker.GetId(Item);
+            int id = Broker.Instance.GetId(Item);
             if (id == 1)
             {
                 Item.Id = 1;
@@ -21,7 +22,7 @@ namespace SystemOperations
             {
                 Item.Id = id + 1;
             }
-            return broker.Add(Item);
+            return Broker.Instance.Add(Item);
         }
 
         protected override void Validation(IDomainObject obj)

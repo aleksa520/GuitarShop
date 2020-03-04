@@ -33,6 +33,7 @@ namespace Forme
             if(formType == FormType.CustomerForm)
             {
                 btnBill.BringToFront();
+                btnViewBills.Hide();
             }
             else
             {

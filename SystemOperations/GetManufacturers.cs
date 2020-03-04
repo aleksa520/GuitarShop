@@ -2,23 +2,23 @@
 using Domain;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace SystemOperations
 {
-    public class AddArticle : CommonSystemOperation
+    public class GetManufacturers : CommonSystemOperation
     {
-        public Article Article { get; private set; }
-
+        public Manufacturer Manufacturer { get; private set; }
         protected override object ExecuteSpecificOperation(IDomainObject obj)
         {
-            Article = (Article)obj;
-            return Broker.Instance.Add(obj);
+            Manufacturer = (Manufacturer)obj;
+            return Broker.Instance.GetList(obj).OfType<Manufacturer>().ToList();
         }
 
         protected override void Validation(IDomainObject obj)
         {
-            if(!(obj is Article))
+            if (!(obj is Manufacturer))
             {
                 throw new ArgumentException();
             }
