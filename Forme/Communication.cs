@@ -33,6 +33,19 @@ namespace Forme
             return (List<Bill>)res.Object;
         }
 
+        internal List<Employee> GetEmployees()
+        {
+            Request req = new Request()
+            {
+                Operation = Operation.GetEmployees
+            };
+
+            formatter.Serialize(stream, req);
+            Response res = (Response)formatter.Deserialize(stream);
+
+            return (List<Employee>)res.Object;
+        }
+
         internal List<Article> GetArticles()
         {
             Request req = new Request()
@@ -187,34 +200,6 @@ namespace Forme
             else
             {
                 return null;
-            }
-        }
-
-
-        internal bool Validation(string username)
-        {
-            Employee emp = new Employee
-            {
-                Username = username
-            };
-
-            Request req = new Request
-            {
-                Operation = Operation.Validation,
-                Object = emp
-            };
-
-            formatter.Serialize(stream, req);
-
-            Response res = (Response)formatter.Deserialize(stream);
-
-            if(res.Signal == Signal.Ok)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
             }
         }
 

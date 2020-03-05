@@ -32,12 +32,6 @@ namespace Forme
             }
             if (Communication.Instance.Connect())
             {
-                if (!Validation())
-                {
-                    Communication.Instance.ShowMessageBox("Username Allready Exists!");
-                    return;
-                }
-
                 string firstName = txtFirstName.Text;
                 string lastName = txtLastName.Text;
                 string username = txtUsername.Text;
@@ -61,13 +55,6 @@ namespace Forme
             }
         }
 
-        public bool Validation()
-        {
-            string username = txtUsername.Text;
-
-            return Communication.Instance.Validation(username);
-     
-        }
         private void button5_Click(object sender, EventArgs e)
         {
             Hide();

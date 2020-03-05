@@ -12,11 +12,34 @@ namespace SystemOperations
 
         protected override object ExecuteSpecificOperation(IDomainObject obj)
         {
-            Bill bill = (Bill)obj;
-            Bill = bill;
-            bill.Date = DateTime.Now;
+            Bill = (Bill)obj;
+            Bill.Date = DateTime.Now;
 
-            return Broker.Instance.Add(obj);
+            Broker.Instance.Add(obj);
+
+
+            int billId = Broker.Instance.GetId(Bill);
+
+            foreach (var item in Bill.Items)
+            {
+                item.Bill = Bill;
+                item.Bill.Id = billId;
+            }
+
+            foreach (var item in Bill.Items)
+            {
+                int itemId = Broker.Instance.GetId(item);
+                if (itemId == 0)
+                {
+                    item.Id = 1;
+                }
+                else
+                {
+                    item.Id = itemId + 1;
+                }
+                Broker.Instance.Add(item);
+            }
+            return true;
         }
 
         protected override void Validation(IDomainObject obj)

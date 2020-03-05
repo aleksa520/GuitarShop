@@ -96,7 +96,7 @@ namespace DatabaseBroker
             }
             catch (Exception)
             {
-                return 1;
+                return 0;
                 throw;
             }
         }

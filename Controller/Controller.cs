@@ -28,25 +28,12 @@ namespace Controller
         {
         }
 
-        public Employee EmployeeLogin(string username, string password)
-        {
-            List<Employee> employees = GetAllEmployees();
-
-            foreach (Employee emp in employees)
-            {
-                if (emp.Username == username && emp.Password == password)
-                {
-                    return emp;
-                }
-            }
-            throw new Exception("User Not Found!");
-        }
-
         public bool DeleteArticle(Article article)
         {
             DeleteArticle da = new DeleteArticle();
             return (bool)da.Execute(article);
         }
+
         public bool UpdateArticle(Article article)
         {
             UpdateArticle ua = new UpdateArticle();
@@ -62,26 +49,7 @@ namespace Controller
         public bool AddBill(Bill bill)
         {
             AddBill ab = new AddBill();
-
-            ab.Execute(bill);
-            Broker.Instance.OpenConnection();
-            int id = Broker.Instance.GetId(bill);
-            Broker.Instance.CloseConnection();
-
-            foreach (var item  in bill.Items)
-            {
-                item.Bill = bill;
-                item.Bill.Id = id;
-            }
-
-            AddBillItems abi = new AddBillItems();
-
-            foreach (var item in bill.Items)
-            {
-                abi.Execute(item);
-            }
-
-            return true;
+            return (bool)ab.Execute(bill);
         }
 
         public List<Article> GetArticles()
@@ -96,75 +64,36 @@ namespace Controller
             return gb.Execute(new Bill()) as List<Bill>;
         }
 
-        private List<Employee> GetAllEmployees()
+        public List<Employee> GetEmployees()
         {
-            try
-            {
-                Broker.Instance.OpenConnection();
-                return Broker.Instance.GetList(new Employee()).OfType<Employee>().ToList();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                Broker.Instance.CloseConnection();
-            }
+            GetEmployees ge = new GetEmployees();
+            return ge.Execute(new Employee()) as List<Employee>;
         }
 
         public Customer CustomerLogin(string username, string password)
         {
-            List<Customer> customers = GetAllCustomers();
-
-            foreach (Customer cust in customers)
+            SystemOperations.CustomerLogin cl = new SystemOperations.CustomerLogin();
+            return cl.Execute(new Customer()
             {
-                if (cust.Username == username && cust.Password == password)
-                {
-                    return cust;
-                }
-            }
-            throw new Exception("User Not Found");
+                Username = username,
+                Password = password
+            }) as Customer;
         }
 
-        public List<Customer> GetAllCustomers()
+        public Employee EmployeeLogin(string username, string password)
         {
-            GetCustomers ga = new GetCustomers();
-            return ga.Execute(new Customer()) as List<Customer>;
+            SystemOperations.EmployeeLogin el = new SystemOperations.EmployeeLogin();
+            return el.Execute(new Employee()
+            {
+                Username = username,
+                Password = password
+            }) as Employee;
         }
 
         public Customer CustomerRegistration(Customer customer)
         {
-            List<Customer> customers = GetAllCustomers();
-
-            foreach (Customer cust in customers)
-            {
-                if (cust.Username == customer.Username)
-                {
-                    throw new Exception("Username Allready Exists!");
-                }
-            }
-
-            AddCustomer addc = new AddCustomer();
-            addc.Execute(customer);
-
-            return customer;
-        }
-
-        public Employee Validation(Employee employee)
-        {
-            EmployeeStorage employeeStorage = new EmployeeStorage();
-
-            List<Employee> employees = employeeStorage.GetEmployees();
-
-            foreach (Employee emp in employees)
-            {
-                if (emp.Username == employee.Username)
-                {
-                    throw new Exception("Username Allready Exists!");
-                }
-            }
-            return employee;
+            Register reg = new Register();
+            return reg.Execute(customer) as  Customer;
         }
 
         public List<ArticleType> GetAllArticleTypes()
@@ -173,6 +102,7 @@ namespace Controller
             return gat.Execute(new ArticleType()) as List<ArticleType>;
 
         }
+
         public List<Manufacturer> GetAllManufacturers()
         {
             GetManufacturers gm = new GetManufacturers();

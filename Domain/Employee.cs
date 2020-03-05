@@ -58,6 +58,7 @@ namespace Domain
                 };
                 list.Add(emp);
             }
+            reader.Close();
             return list;
         }
 

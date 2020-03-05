@@ -39,7 +39,7 @@ namespace Domain
         [Browsable(false)]
         public string FullTable => "Bill b";
         [Browsable(false)]
-        public string InsertValues => $"{TotalValue},'{Date}',{Customer.Id},1";
+        public string InsertValues => $"{TotalValue},'{Date}',{Customer.Id},{Employee.Id}";
         [Browsable(false)]
         public string UpdateValues => throw new NotImplementedException();
         [Browsable(false)]

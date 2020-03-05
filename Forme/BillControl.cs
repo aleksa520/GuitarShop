@@ -21,6 +21,7 @@ namespace Forme
             Bill = new Bill();
             BillItems = new BindingList<Item>();
             dgvBillItems.DataSource = BillItems;
+            cmbEmployees.DataSource = Communication.Instance.GetEmployees();
         }
 
         private void btnBuy_Click(object sender, EventArgs e)
@@ -32,10 +33,30 @@ namespace Forme
             }
             Bill.Items = BillItems.ToList();
             Bill.Customer = Session.Instance.Customer;
+            Bill.Employee = (Employee)cmbEmployees.SelectedItem;
             if (Communication.Instance.AddBill(Bill))
             {
-                Communication.Instance.ShowMessageBox("Bill Added!");
+                Communication.Instance.ShowMessageBox("Thank You For Your Purchase!");
+                BillItems.Clear();
             }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Item item = (dgvBillItems.SelectedRows[0].DataBoundItem as Item);
+                BillItems.Remove(item);
+            }
+            catch
+            {
+                Communication.Instance.ShowMessageBox("Select Row To Delete Article");
+            }
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -71,13 +71,6 @@ namespace Server
                             response.Object = foundCustomer;
                             formatter.Serialize(stream, response);
                             break;
-                        case Operation.Validation:
-                            emp = (Employee)request.Object;
-                            foundEmployee = Controller.Controller.Instance.Validation(emp);
-                            response.Message = "Username Is Available!";
-                            response.Object = foundCustomer;
-                            formatter.Serialize(stream, response);
-                            break;
                         case Operation.GetAllArticleTypes:
                             response.Object = Controller.Controller.Instance.GetAllArticleTypes();
                             formatter.Serialize(stream, response);
@@ -112,6 +105,10 @@ namespace Server
                             break;
                         case Operation.GetBills:
                             response.Object = Controller.Controller.Instance.GetBills();
+                            formatter.Serialize(stream, response);
+                            break;
+                        case Operation.GetEmployees:
+                            response.Object = Controller.Controller.Instance.GetEmployees();
                             formatter.Serialize(stream, response);
                             break;
                     }

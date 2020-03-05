@@ -26,6 +26,7 @@ namespace Domain
         DeleteArticle,
         UpdateArticle,
         AddBill,
-        GetBills
+        GetBills,
+        GetEmployees
     }
 }
