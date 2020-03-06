@@ -32,15 +32,25 @@ namespace Forme
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            Article article = null;
             try
             {
-                Article article = (dataGridView1.SelectedRows[0].DataBoundItem as Article);
-                Communication.Instance.DeleteArticle(article);
-                Articles.Remove(article);
+                article = (dataGridView1.SelectedRows[0].DataBoundItem as Article);
             }
             catch
             {
-                Communication.Instance.ShowMessageBox("Select Row To Delete Article");
+                Communication.Instance.ShowMessageBox("Select Row To Delete Article!");
+                return;
+            }
+
+            try
+            {
+                Communication.Instance.DeleteArticle(article);
+                Articles.Remove(article);
+            }
+            catch (Exception)
+            {
+                Communication.Instance.ShowMessageBox("Can't Delete This Article!");
             }
         }
 
