@@ -35,13 +35,13 @@ namespace Domain
         [Browsable(false)]
         public string UpdateValues => throw new NotImplementedException();
         [Browsable(false)]
-        public string Join => throw new NotImplementedException();
+        public string Join => "JOIN Article a on(a.Id = i.Article)";
         [Browsable(false)]
         public string SearchId => throw new NotImplementedException();
         [Browsable(false)]
         public object ColumnId => "Id";
         [Browsable(false)]
-        public object Get => throw new NotImplementedException();
+        public object Get => "SELECT i.Id, i.BillId, i.Count, a.Name, a.Price FROM";
         [Browsable(false)]
         public string Criteria { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         [Browsable(false)]
@@ -52,8 +52,31 @@ namespace Domain
         [Browsable(false)]
         public List<IDomainObject> GetReaderResult(SqlDataReader reader)
         {
-            throw new NotImplementedException();
+            List<IDomainObject> list = new List<IDomainObject>();
+            while (reader.Read())
+            {
+                Item item = new Item() { };
+                item.Id = reader.GetInt32(0);
+
+                item.Bill = new Bill()
+                {
+                    Id = reader.GetInt32(1)
+                };
+
+                item.Count = reader.GetInt32(2);
+
+                item.Article = new Article()
+                {
+                    Name = reader.GetString(3),
+                    Price = reader.GetDouble(4)
+                };
+
+                list.Add(item);
+            }
+            reader.Close();
+            return list;
         }
+
         [Browsable(false)]
         public string SearchCriteria(int crit)
         {

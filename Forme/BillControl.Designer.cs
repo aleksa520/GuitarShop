@@ -33,8 +33,6 @@
             this.dgvBillItems = new System.Windows.Forms.DataGridView();
             this.btnBuy = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cmbEmployees = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBillItems)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,7 +41,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(250, 23);
+            this.label1.Location = new System.Drawing.Point(273, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(39, 25);
             this.label1.TabIndex = 1;
@@ -67,7 +65,7 @@
             this.dgvBillItems.Location = new System.Drawing.Point(44, 67);
             this.dgvBillItems.Name = "dgvBillItems";
             this.dgvBillItems.ReadOnly = true;
-            this.dgvBillItems.Size = new System.Drawing.Size(377, 212);
+            this.dgvBillItems.Size = new System.Drawing.Size(414, 212);
             this.dgvBillItems.TabIndex = 3;
             // 
             // btnBuy
@@ -79,7 +77,7 @@
             this.btnBuy.ForeColor = System.Drawing.SystemColors.Control;
             this.btnBuy.Location = new System.Drawing.Point(464, 249);
             this.btnBuy.Name = "btnBuy";
-            this.btnBuy.Size = new System.Drawing.Size(126, 30);
+            this.btnBuy.Size = new System.Drawing.Size(165, 30);
             this.btnBuy.TabIndex = 5;
             this.btnBuy.Text = "Buy";
             this.btnBuy.UseVisualStyleBackColor = false;
@@ -92,42 +90,19 @@
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnDelete.Location = new System.Drawing.Point(464, 203);
+            this.btnDelete.Location = new System.Drawing.Point(464, 67);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(126, 30);
+            this.btnDelete.Size = new System.Drawing.Size(165, 30);
             this.btnDelete.TabIndex = 6;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(483, 67);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(87, 19);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Employee";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // cmbEmployees
-            // 
-            this.cmbEmployees.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.cmbEmployees.FormattingEnabled = true;
-            this.cmbEmployees.Location = new System.Drawing.Point(445, 106);
-            this.cmbEmployees.Name = "cmbEmployees";
-            this.cmbEmployees.Size = new System.Drawing.Size(165, 28);
-            this.cmbEmployees.TabIndex = 9;
             // 
             // BillControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(18)))), ((int)(((byte)(40)))));
-            this.Controls.Add(this.cmbEmployees);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnBuy);
             this.Controls.Add(this.dgvBillItems);
@@ -146,7 +121,5 @@
         private System.Windows.Forms.DataGridView dgvBillItems;
         private System.Windows.Forms.Button btnBuy;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cmbEmployees;
     }
 }

@@ -28,6 +28,7 @@ namespace Forme
         {
             if(txtUsername.Text == "" || txtPassword.Text == "" || txtFirstName.Text == "" || txtLastName.Text == "")
             {
+                Communication.Instance.ShowMessageBox("Please Fill Out All Fields!");
                 return;
             }
             if (Communication.Instance.Connect())
@@ -51,7 +52,6 @@ namespace Forme
             else
             {
                 Communication.Instance.ShowMessageBox("Cannot Connect To The Server!");
-
             }
         }
 

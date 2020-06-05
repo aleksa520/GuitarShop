@@ -14,6 +14,7 @@ namespace Forme
     public partial class BillControl : UserControl
     {
         public static BindingList<Item> BillItems { get; set; }
+        public List<Employee> MyEployees { get; set; }
         public Bill Bill { get; set; }
         public BillControl()
         {
@@ -21,7 +22,7 @@ namespace Forme
             Bill = new Bill();
             BillItems = new BindingList<Item>();
             dgvBillItems.DataSource = BillItems;
-            cmbEmployees.DataSource = Communication.Instance.GetEmployees();
+            MyEployees = Communication.Instance.GetEmployees();
         }
 
         private void btnBuy_Click(object sender, EventArgs e)
@@ -33,10 +34,27 @@ namespace Forme
             }
             Bill.Items = BillItems.ToList();
             Bill.Customer = Session.Instance.Customer;
-            Bill.Employee = (Employee)cmbEmployees.SelectedItem;
+            if(DateTime.Now.DayOfWeek == DayOfWeek.Monday ||
+                DateTime.Now.DayOfWeek == DayOfWeek.Wednesday ||
+                DateTime.Now.DayOfWeek == DayOfWeek.Friday ||
+                DateTime.Now.DayOfWeek == DayOfWeek.Sunday)
+            {
+                Bill.Employee = MyEployees[0];
+            }
+            else if(MyEployees.Count > 1)
+            {
+                Bill.Employee = MyEployees[1];
+            }
+            else
+            {
+                Bill.Employee = MyEployees[0];
+            }
+          
             if (Communication.Instance.AddBill(Bill))
             {
-                Communication.Instance.ShowMessageBox("Thank You For Your Purchase!");
+                string total = BillItems.Sum(x => x.Value).ToString();
+                Communication.Instance.ShowMessageBox($"Thank You For Your Purchase!" +
+                    $"\nYour Total Amount Is {total} $");
                 BillItems.Clear();
             }
         }
@@ -55,6 +73,11 @@ namespace Forme
         }
 
         private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
         {
 
         }

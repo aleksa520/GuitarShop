@@ -61,7 +61,22 @@ namespace Controller
         public List<Bill> GetBills()
         {
             GetBills gb = new GetBills();
-            return gb.Execute(new Bill()) as List<Bill>;
+            GetItems gi = new GetItems();
+            List<Bill> bills = gb.Execute(new Bill()) as List<Bill>;
+
+            foreach (Bill b in bills)
+            {
+                List<Item> items = gi.Execute(new Item()) as List<Item>;
+                b.Items = new List<Item>();
+                foreach (Item i in items)
+                {
+                    if (i.Bill.Id == b.Id)
+                    {
+                        b.Items.Add(i);
+                    }
+                }
+            }
+            return bills;
         }
 
         public List<Employee> GetEmployees()
@@ -93,7 +108,7 @@ namespace Controller
         public Customer CustomerRegistration(Customer customer)
         {
             Register reg = new Register();
-            return reg.Execute(customer) as  Customer;
+            return reg.Execute(customer) as Customer;
         }
 
         public List<ArticleType> GetAllArticleTypes()
