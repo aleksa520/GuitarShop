@@ -35,7 +35,7 @@ namespace Domain
         [Browsable(false)]
         public string Join => "JOIN Manufacturer m on (m.Id = a.Manufacturer) join ArticleType at on (at.Id= a.ArticleType)";
         [Browsable(false)]
-        public string SearchId => "";
+        public string SearchId => $"WHERE a.Name like '%{Criteria}%'";
         [Browsable(false)]
         public object ColumnId => "";
 

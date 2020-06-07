@@ -58,6 +58,17 @@ namespace Forme
 
             return (List<Article>)res.Object;
         }
+        internal List<Article> SearchArticles(string critearia)
+        {
+            Request req = new Request()
+            {
+                Operation = Operation.SearchArticles,
+                Object = critearia
+            };
+            formatter.Serialize(stream, req);
+            Response res = (Response)formatter.Deserialize(stream);
+            return (List<Article>)res.Object;
+        }
 
         internal bool AddBill(Bill bill)
         {
@@ -126,6 +137,7 @@ namespace Forme
 
             return (bool)res.Object;
         }
+
         internal bool UpdateArticle(Article article)
         {
             Request req = new Request()

@@ -27,6 +27,7 @@ namespace Domain
         UpdateArticle,
         AddBill,
         GetBills,
-        GetEmployees
+        GetEmployees,
+        SearchArticles
     }
 }

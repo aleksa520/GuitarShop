@@ -13,7 +13,6 @@ namespace DatabaseBroker
         private static Broker instance;
         SqlConnection connection;
         SqlTransaction transaction;
-
         public static Broker Instance
         {
             get
@@ -29,32 +28,26 @@ namespace DatabaseBroker
         {
             connection = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=GuitarShop;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         }
-
         public void OpenConnection()
         {
             connection.Open();
         }
-
         public void CloseConnection()
         {
             connection.Close();
         }
-
         public void BeginTransaction()
         {
             transaction = connection.BeginTransaction();
         }
-
         public void Commit()
         {
             transaction.Commit();
         }
-
         public void Rollback()
         {
             transaction.Rollback();
         }
-
         public List<IDomainObject> GetListFull(IDomainObject obj)
         {
             SqlCommand command = new SqlCommand("", connection, transaction);
@@ -62,7 +55,6 @@ namespace DatabaseBroker
             SqlDataReader reader = command.ExecuteReader();
             return obj.GetReaderResult(reader);
         }
-
         public List<IDomainObject> GetList(IDomainObject obj)
         {
             SqlCommand command = new SqlCommand("", connection, transaction);
@@ -70,21 +62,25 @@ namespace DatabaseBroker
             SqlDataReader reader = command.ExecuteReader();
             return obj.GetReaderResult(reader);
         }
-
         public bool Add(IDomainObject obj)
         {
             SqlCommand command = new SqlCommand("", connection, transaction);
             command.CommandText = $"INSERT INTO {obj.Table} VALUES({obj.InsertValues})";
             return command.ExecuteNonQuery() == 1;
         }
-
         public bool Update(IDomainObject obj)
         {
             SqlCommand command = new SqlCommand("", connection, transaction);
             command.CommandText = $"UPDATE {obj.Table} SET {obj.UpdateValues} {obj.SearchWhere()}";
             return command.ExecuteNonQuery() == 1;
         }
-
+        public List<IDomainObject> Search(IDomainObject obj)
+        {
+            SqlCommand command = new SqlCommand("", connection, transaction);
+            command.CommandText = $"{obj.Get} {obj.FullTable} {obj.Join} {obj.SearchId}";
+            SqlDataReader reader = command.ExecuteReader();
+            return obj.GetReaderResult(reader);
+        }
         public int GetId(IDomainObject obj)
         {
             try
@@ -100,7 +96,6 @@ namespace DatabaseBroker
                 throw;
             }
         }
-
         public bool Delete(IDomainObject obj)
         {
             SqlCommand command = new SqlCommand("", connection, transaction);

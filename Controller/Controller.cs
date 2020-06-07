@@ -58,6 +58,14 @@ namespace Controller
             return ga.Execute(new Article()) as List<Article>;
         }
 
+        public List<Article> SearchArticles(string critearia)
+        {
+            SearchArticles sa = new SearchArticles();
+            Article a = new Article();
+            a.Criteria = critearia;
+            return sa.Execute(a) as List<Article>;
+        }
+
         public List<Bill> GetBills()
         {
             GetBills gb = new GetBills();

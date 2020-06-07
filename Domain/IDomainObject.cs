@@ -17,9 +17,6 @@ namespace Domain
         string SearchWhere();
         string SearchCriteria(int crit);
         string Condition();
-        //string Search(string s);
-        //string UslovLog(string s1, string s2);
-        //string UslovSe(int s1, int s2);
         string SearchId { get; }
         object ColumnId { get; }
         object Get { get; }

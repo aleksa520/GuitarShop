@@ -47,6 +47,7 @@ namespace Server
                     Employee foundEmployee = null;
                     Article article = null;
                     Bill bill = null;
+                    string critearia = "";
 
                     switch (request.Operation)
                     {
@@ -81,6 +82,11 @@ namespace Server
                             break;
                         case Operation.GetArticles:
                             response.Object = Controller.Controller.Instance.GetArticles();
+                            formatter.Serialize(stream, response);
+                            break;
+                        case Operation.SearchArticles:
+                            critearia = (string)request.Object;
+                            response.Object = Controller.Controller.Instance.SearchArticles(critearia);
                             formatter.Serialize(stream, response);
                             break;
                         case Operation.AddArticle:

@@ -33,6 +33,7 @@ namespace Forme
         private void btnDelete_Click(object sender, EventArgs e)
         {
             Article article = null;
+            string articleName = "";
             try
             {
                 article = (dataGridView1.SelectedRows[0].DataBoundItem as Article);
@@ -45,8 +46,10 @@ namespace Forme
 
             try
             {
+                articleName = article.Name;
                 Communication.Instance.DeleteArticle(article);
                 Articles.Remove(article);
+                Communication.Instance.ShowMessageBox($"{articleName} Has Been Deleted!");
             }
             catch (Exception)
             {
@@ -96,6 +99,14 @@ namespace Forme
             {
                 Communication.Instance.ShowMessageBox($"Select Row To Add To The Bill");
             }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            BindingList<Article> filteredArticles;
+            filteredArticles = new BindingList<Article>(Communication.Instance.SearchArticles(txtCriteria.Text));
+            Articles = filteredArticles;
+            dataGridView1.DataSource = Articles;
         }
     }
 }
