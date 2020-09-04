@@ -107,6 +107,10 @@ namespace Forme
             filteredArticles = new BindingList<Article>(Communication.Instance.SearchArticles(txtCriteria.Text));
             Articles = filteredArticles;
             dataGridView1.DataSource = Articles;
+            if(Articles.Count == 0)
+            {
+                Communication.Instance.ShowMessageBox($"There Is No Article With Name: {txtCriteria.Text}!");
+            }
         }
     }
 }
