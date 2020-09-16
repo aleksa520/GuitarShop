@@ -42,11 +42,15 @@ namespace Forme
 
         private void btnPDF_Click(object sender, EventArgs e)
         {
-            using(SaveFileDialog std = new SaveFileDialog(){ Filter = "PDF file|*.pdf", ValidateNames = true })
+
+            DateTime from = dateFrom.Value;
+            DateTime to = dateTo.Value;
+
+            using (SaveFileDialog std = new SaveFileDialog(){ Filter = "PDF file|*.pdf", ValidateNames = true })
             {
                 if(std.ShowDialog() == DialogResult.OK)
                 {
-                    iTextSharp.text.Document doc = new iTextSharp.text.Document(PageSize.A4.Rotate());
+                    iTextSharp.text.Document doc = new Document(PageSize.A4.Rotate());
                     try
                     {
                         PdfWriter.GetInstance(doc, new FileStream(std.FileName, FileMode.Create));
@@ -66,11 +70,14 @@ namespace Forme
 
                         foreach(var b in Bills)
                         {
-                            s += string.Format("{0,-10}", b.Value.ToString());
-                            s += string.Format("{0,-16}", b.Employee.ToString());
-                            s += string.Format("{0,30}", b.Date.ToString());
-                            s += "\n";
-                            totalSum += b.TotalValue;
+                            if(b.Date > from && b.Date < to)
+                            {
+                                s += string.Format("{0,-10}", b.Value.ToString());
+                                s += string.Format("{0,-16}", b.Employee.ToString());
+                                s += string.Format("{0,30}", b.Date.ToString());
+                                s += "\n";
+                                totalSum += b.TotalValue;
+                            }                       
                         }
 
                         doc.Add(new iTextSharp.text.Paragraph(s));
