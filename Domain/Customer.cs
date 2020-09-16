@@ -8,14 +8,8 @@ using System.Threading.Tasks;
 namespace Domain
 {
     [Serializable]
-    public class Customer : IDomainObject
+    public class Customer : Person, IDomainObject
     {
-        public int Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
-
         public string Table => "Customer";
 
         public string FullTable => throw new NotImplementedException();
