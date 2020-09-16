@@ -84,6 +84,8 @@ namespace Forme
 
                         doc.Add(new iTextSharp.text.Paragraph("==========================================="));
                         doc.Add(new iTextSharp.text.Paragraph("Total Value: " + totalSum));
+                        doc.Add(new iTextSharp.text.Paragraph("From: " + from));
+                        doc.Add(new iTextSharp.text.Paragraph("To: " + to));
                         Communication.Instance.ShowMessageBox("PDF is Saved!");
 
                     }
